@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"                            
+          crossorigin="anonymous" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-body" style="max-width:500px">
+            <div class="form-group">
+                <label></label>
+                <input class="form-control" placeholder="Email" id="email" autofocus />
+            </div>
+            <div class="form-group">
+                <label></label>
+                <input class="form-control" placeholder="Password" id="password" autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" name="button" id="login">Login</button>
+                <button class="btn btn-primary" name="button" id="getdata">Get Data</button>
+
+            </div>
+
+            <div id="buttonsContainer" style="display:none">
+                <button class="btn btn-primary" name="button" id="getadmindata">Get Admin Data</button>
+                <button class="btn btn-primary" name="button" id="getaccountantdata">Get Accountant Data</button>
+                <button class="btn btn-primary" name="button" id="getsellerdata">Get Seller Data</button>
+            </div>
+        </div>
+
+        <div class="card-body" id="dataContainer" style="display:none">
+            <div class="form-group" id="userDataContainer">
+                <div>User</div>
+                <div id="fullName"></div>
+                <div id="roles"></div>
+            </div>
+            <div class="form-group" id="tokenContainer">
+                Token
+                <textarea id="tokenValue" class="form-control" rows="3" readonly="readonly">
+
+            </textarea>
+            </div>
+        </div>
+        <div class="card-body" id="information">
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

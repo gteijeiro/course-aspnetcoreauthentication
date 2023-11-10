@@ -1,0 +1,59 @@
+﻿@model MVCClient.ViewModels.IndexViewModel 
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="card-body">
+        <form asp-route="index" style="max-width:500px">
+            <input type="hidden" name="token" value="@Model.Token" />
+            <input type="hidden" name="FullUserName" value="@Model.FullUserName" />
+            <div class="form-group">
+                <label asp-for="UserCredential.Email"></label>
+                <input class="form-control" placeholder="Email" asp-for="UserCredential.Email" autofocus />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserCredential.Password"></label>
+                <input class="form-control" placeholder="Password" asp-for="UserCredential.Password" autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" name="button" value="login">Login</button>
+                <button class="btn btn-primary" name="button" value="getdata">Get Data</button>
+
+            </div>
+
+            @if(Model.Token != null)
+            {
+                <button class="btn btn-primary" name="button" value="getadmindata">Get Admin Data</button>
+                <button class="btn btn-primary" name="button" value="getaccountantdata">Get Accountant Data</button>
+                <button class="btn btn-primary" name="button" value="getsellerdata">Get Seller Data</button>
+            }
+        </form>
+    </div>
+
+    <div class="card-body">
+        @if(Model.FullUserName != null)
+        {
+            <div class="form-group">
+                <div>User:</div>
+                <div>@Model.FullUserName</div>
+                <div> 
+                    (@string.Join(", ", Model.Roles))
+                </div>            
+            </div>
+        }
+        @if(Model.Token != null)
+        {
+            <div class="form-group">
+                Token: 
+                <textarea class="form-control" rows="3" readonly>
+                    @Model.Token
+                </textarea>
+            </div>
+        }
+        <div class="form-group">
+            @Model.InformationMessage
+        </div>
+    </div>
+</div>
